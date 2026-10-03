@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard - Smart Library</title>
+
+    <link rel="stylesheet" href="css/student-dashboard.css">
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+    <div class="logo">
+        📚 <span>Smart Library</span>
+    </div>
+
+    <div class="role-label">
+        STUDENT PANEL
+    </div>
+
+    <nav>
+
+        <a href="#" class="nav-item active">🏠 <span>Dashboard</span></a>
+        <a href="#browse" class="nav-item">🔎 <span>Browse Books</span></a>
+        <a href="#issued" class="nav-item">📖 <span>My Books</span></a>
+        <a href="#reservations" class="nav-item">📋 <span>Reservations</span></a>
+        <a href="#wishlist" class="nav-item">❤️ <span>Wishlist</span></a>
+        <a href="#fines" class="nav-item">💰 <span>My Fines</span></a>
+        <a href="#notifications" class="nav-item">🔔 <span>Notifications</span></a>
+        <a href="#history" class="nav-item">📜 <span>History</span></a>
+        <a href="#recommendations" class="nav-item">✨ <span>Recommendations</span></a>
+
+    </nav>
+
+    <button id="logoutBtn" class="logout-btn">
+        🚪 Logout
+    </button>
+
+</aside>
+
+
+<main class="main-content">
+
+    <header class="topbar">
+
+        <div>
+            <h1>Student Dashboard</h1>
+            <p>Your personal library space</p>
+        </div>
+
+        <div class="profile">
+
+            <div class="profile-icon">
+                🎓
+            </div>
+
+            <div>
+                <strong id="studentName">Student</strong>
+                <small>STUDENT</small>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <section class="welcome-card">
+
+        <div>
+
+            <span class="badge">
+                STUDENT ACCESS
+            </span>
+
+            <h2>
+                Hello,
+                <span id="welcomeName">Student</span>
+                👋
+            </h2>
+
+            <p>
+                Discover books, manage your borrowing,
+                reservations, wishlist and library activities.
+            </p>
+
+        </div>
+
+        <div class="welcome-icon">
+            🎓
+        </div>
+
+    </section>
+
+
+    <!-- STATS -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+            <span>📖</span>
+            <div>
+                <p>My Books</p>
+                <h2 id="myBooks">0</h2>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <span>⏰</span>
+            <div>
+                <p>Due Soon</p>
+                <h2 id="dueSoon">0</h2>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <span>📋</span>
+            <div>
+                <p>Reservations</p>
+                <h2 id="myReservations">0</h2>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <span>❤️</span>
+            <div>
+                <p>Wishlist</p>
+                <h2 id="wishlistCount">0</h2>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <span>💰</span>
+            <div>
+                <p>My Fines</p>
+                <h2 id="myFines">₹0</h2>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- BROWSE BOOKS -->
+
+    <section class="section" id="browse">
+
+        <div class="section-header">
+
+            <div>
+                <h2>Browse Books</h2>
+                <p>Explore books available in the library</p>
+            </div>
+
+            <button class="primary-btn" onclick="loadBooks()">
+                🔄 Refresh
+            </button>
+
+        </div>
+
+        <div class="search-box">
+
+            <input
+                    type="text"
+                    id="bookSearch"
+                    placeholder="Search by title, author or category..."
+                    oninput="filterBooks()"
+            >
+
+        </div>
+
+        <div class="book-grid" id="bookGrid">
+            <p>Loading books...</p>
+        </div>
+
+    </section>
+
+
+    <!-- MY BOOKS -->
+
+    <section class="section" id="issued">
+
+        <div class="section-header">
+
+            <div>
+                <h2>My Issued Books</h2>
+                <p>Books currently borrowed by you</p>
+            </div>
+
+            <button class="primary-btn" onclick="loadMyBooks()">
+                🔄 Refresh
+            </button>
+
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Book</th>
+                    <th>Issue Date</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+
+                <tbody id="issuedTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESERVATIONS -->
+
+    <section class="section" id="reservations">
+
+        <div class="section-header">
+            <div>
+                <h2>My Reservations</h2>
+                <p>Your reserved books</p>
+            </div>
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Book</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+
+                <tbody id="reservationTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- WISHLIST -->
+
+    <section class="section" id="wishlist">
+
+        <div class="section-header">
+            <div>
+                <h2>My Wishlist ❤️</h2>
+                <p>Books you want to read</p>
+            </div>
+        </div>
+
+        <div class="book-grid" id="wishlistGrid">
+            <p>Loading wishlist...</p>
+        </div>
+
+    </section>
+
+
+    <!-- FINES -->
+
+    <section class="section" id="fines">
+
+        <div class="section-header">
+            <div>
+                <h2>My Fines</h2>
+                <p>View your pending and paid fines</p>
+            </div>
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Transaction</th>
+                    <th>Overdue Days</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+
+                <tbody id="finesTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- NOTIFICATIONS -->
+
+    <section class="section" id="notifications">
+
+        <div class="section-header">
+            <div>
+                <h2>Notifications 🔔</h2>
+                <p>Your latest library notifications</p>
+            </div>
+        </div>
+
+        <div id="notificationList" class="notification-list">
+            Loading notifications...
+        </div>
+
+    </section>
+
+
+    <!-- HISTORY -->
+
+    <section class="section" id="history">
+
+        <div class="section-header">
+            <div>
+                <h2>Borrowing History</h2>
+                <p>Your previous library transactions</p>
+            </div>
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Book</th>
+                    <th>Issue Date</th>
+                    <th>Return Date</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+
+                <tbody id="historyTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- RECOMMENDATIONS -->
+
+    <section class="section" id="recommendations">
+
+        <div class="section-header">
+
+            <div>
+                <h2>Recommended For You ✨</h2>
+                <p>Discover books from our library</p>
+            </div>
+
+        </div>
+
+        <div class="book-grid" id="recommendationGrid"></div>
+
+    </section>
+
+</main>
+
+<script src="js/student-dashboard.js"></script>
+
+</body>
+</html>

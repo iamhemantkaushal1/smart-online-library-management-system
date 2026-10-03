@@ -1,0 +1,3 @@
+POST http://localhost:8080/api/transactions/issue?userId=2&bookCopyId=1&days=14
+Content-Type: application/json
+

@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Librarian Dashboard - Smart Library</title>
+
+    <link rel="stylesheet" href="css/librarian-dashboard.css">
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        📚 <span>Smart Library</span>
+    </div>
+
+    <div class="role-label">
+        LIBRARIAN PANEL
+    </div>
+
+    <nav>
+
+        <a href="#" class="nav-item active">
+            📊 <span>Dashboard</span>
+        </a>
+
+        <a href="#books" class="nav-item">
+            📚 <span>Books</span>
+        </a>
+
+        <a href="#issue" class="nav-item">
+            📤 <span>Issue Book</span>
+        </a>
+
+        <a href="#return" class="nav-item">
+            📥 <span>Return Book</span>
+        </a>
+
+        <a href="#renew" class="nav-item">
+            🔄 <span>Renew Book</span>
+        </a>
+
+        <a href="#reservations" class="nav-item">
+            📋 <span>Reservations</span>
+        </a>
+
+        <a href="#members" class="nav-item">
+            👥 <span>Members</span>
+        </a>
+
+        <a href="#fines" class="nav-item">
+            💰 <span>Fines</span>
+        </a>
+
+        <a href="#reports" class="nav-item">
+            📈 <span>Library Reports</span>
+        </a>
+
+        <a href="#notifications" class="nav-item">
+            🔔 <span>Notifications</span>
+        </a>
+
+    </nav>
+
+    <button id="logoutBtn" class="logout-btn">
+        🚪 Logout
+    </button>
+
+</aside>
+
+
+<!-- ================= MAIN CONTENT ================= -->
+
+<main class="main-content">
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <div>
+            <h1>Librarian Dashboard</h1>
+            <p>Manage daily library operations</p>
+        </div>
+
+        <div class="profile">
+
+            <div class="profile-icon">
+                👨‍💼
+            </div>
+
+            <div>
+                <strong id="librarianName">
+                    Librarian
+                </strong>
+
+                <small>
+                    LIBRARIAN
+                </small>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- WELCOME -->
+
+    <section class="welcome-card">
+
+        <div>
+
+            <span class="badge">
+                LIBRARIAN ACCESS
+            </span>
+
+            <h2>
+                Welcome back,
+                <span id="welcomeName">
+                    Librarian
+                </span>
+                👋
+            </h2>
+
+            <p>
+                Manage books, issue and return operations,
+                reservations, members and fines from one place.
+            </p>
+
+        </div>
+
+        <div class="welcome-icon">
+            📖
+        </div>
+
+    </section>
+
+
+    <!-- ================= STATS ================= -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📚
+            </div>
+
+            <div>
+                <p>Total Books</p>
+                <h2 id="totalBooks">0</h2>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📖
+            </div>
+
+            <div>
+                <p>Available Copies</p>
+                <h2 id="availableCopies">0</h2>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📤
+            </div>
+
+            <div>
+                <p>Issued Books</p>
+                <h2 id="issuedBooks">0</h2>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ⏰
+            </div>
+
+            <div>
+                <p>Overdue Books</p>
+                <h2 id="overdueBooks">0</h2>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📋
+            </div>
+
+            <div>
+                <p>Reservations</p>
+                <h2 id="reservations">0</h2>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                💰
+            </div>
+
+            <div>
+                <p>Unpaid Fines</p>
+                <h2 id="unpaidFines">0</h2>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= QUICK OPERATIONS ================= -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <div>
+                <h2>Library Operations</h2>
+
+                <p>
+                    Quickly manage everyday library activities
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="operation-grid">
+
+
+            <button class="operation-card" onclick="scrollToSection('issue')">
+
+                <span class="operation-icon">
+                    📤
+                </span>
+
+                <strong>
+                    Issue Book
+                </strong>
+
+                <small>
+                    Issue a book to a member
+                </small>
+
+            </button>
+
+
+            <button class="operation-card" onclick="scrollToSection('return')">
+
+                <span class="operation-icon">
+                    📥
+                </span>
+
+                <strong>
+                    Return Book
+                </strong>
+
+                <small>
+                    Process returned books
+                </small>
+
+            </button>
+
+
+            <button class="operation-card" onclick="scrollToSection('renew')">
+
+                <span class="operation-icon">
+                    🔄
+                </span>
+
+                <strong>
+                    Renew Book
+                </strong>
+
+                <small>
+                    Extend borrowing period
+                </small>
+
+            </button>
+
+
+            <button class="operation-card" onclick="scrollToSection('reservations')">
+
+                <span class="operation-icon">
+                    📋
+                </span>
+
+                <strong>
+                    Reservations
+                </strong>
+
+                <small>
+                    Manage reserved books
+                </small>
+
+            </button>
+
+
+            <button class="operation-card" onclick="scrollToSection('members')">
+
+                <span class="operation-icon">
+                    👥
+                </span>
+
+                <strong>
+                    Members
+                </strong>
+
+                <small>
+                    View library members
+                </small>
+
+            </button>
+
+
+            <button class="operation-card" onclick="scrollToSection('fines')">
+
+                <span class="operation-icon">
+                    💰
+                </span>
+
+                <strong>
+                    Fines
+                </strong>
+
+                <small>
+                    Manage pending fines
+                </small>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= BOOKS ================= -->
+
+    <section class="section" id="books">
+
+        <div class="section-header">
+
+            <div>
+                <h2>Book Management</h2>
+
+                <p>
+                    View and manage library books
+                </p>
+            </div>
+
+            <button
+                    class="primary-btn"
+                    onclick="loadBooks()">
+
+                🔄 Refresh Books
+
+            </button>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                    <th>Copies</th>
+                    <th>Available</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="booksTable">
+
+                <tr>
+                    <td colspan="6">
+                        Loading books...
+                    </td>
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ISSUE BOOK ================= -->
+
+    <section class="section" id="issue">
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Issue Book
+                </h2>
+
+                <p>
+                    Issue an available book copy to a member
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-card">
+
+            <div class="input-group">
+
+                <label>
+                    User ID
+                </label>
+
+                <input
+                        type="number"
+                        id="issueUserId"
+                        placeholder="Enter user ID"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Book Copy ID
+                </label>
+
+                <input
+                        type="number"
+                        id="issueCopyId"
+                        placeholder="Enter book copy ID"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Borrow Days
+                </label>
+
+                <input
+                        type="number"
+                        id="issueDays"
+                        value="14"
+                        min="1"
+                >
+
+            </div>
+
+
+            <button
+                    class="primary-btn"
+                    onclick="issueBook()">
+
+                📤 Issue Book
+
+            </button>
+
+            <p id="issueMessage" class="form-message"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RETURN BOOK ================= -->
+
+    <section class="section" id="return">
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Return Book
+                </h2>
+
+                <p>
+                    Process a returned book
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-card">
+
+            <div class="input-group">
+
+                <label>
+                    Transaction ID
+                </label>
+
+                <input
+                        type="number"
+                        id="returnTransactionId"
+                        placeholder="Enter transaction ID"
+                >
+
+            </div>
+
+
+            <button
+                    class="primary-btn"
+                    onclick="returnBook()">
+
+                📥 Return Book
+
+            </button>
+
+            <p id="returnMessage" class="form-message"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RENEW BOOK ================= -->
+
+    <section class="section" id="renew">
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Renew Book
+                </h2>
+
+                <p>
+                    Extend the due date of an issued book
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-card">
+
+            <div class="input-group">
+
+                <label>
+                    Transaction ID
+                </label>
+
+                <input
+                        type="number"
+                        id="renewTransactionId"
+                        placeholder="Enter transaction ID"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Additional Days
+                </label>
+
+                <input
+                        type="number"
+                        id="renewDays"
+                        value="7"
+                        min="1"
+                >
+
+            </div>
+
+
+            <button
+                    class="primary-btn"
+                    onclick="renewBook()">
+
+                🔄 Renew Book
+
+            </button>
+
+            <p id="renewMessage" class="form-message"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RESERVATIONS ================= -->
+
+    <section class="section" id="reservations">
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Reservations
+                </h2>
+
+                <p>
+                    Manage active book reservations
+                </p>
+
+            </div>
+
+            <button
+                    class="primary-btn"
+                    onclick="loadReservations()">
+
+                🔄 Refresh
+
+            </button>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Book</th>
+                    <th>Date</th>
+                    <th>Status</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="reservationsTable">
+
+                <tr>
+                    <td colspan="5">
+                        Loading reservations...
+                    </td>
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MEMBERS ================= -->
+
+    <section class="section" id="members">
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Members
+                </h2>
+
+                <p>
+                    View registered library members
+                </p>
+
+            </div>
+
+            <button
+                    class="primary-btn"
+                    onclick="loadMembers()">
+
+                🔄 Refresh Members
+
+            </button>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="membersTable">
+
+                <tr>
+                    <td colspan="4">
+                        Loading members...
+                    </td>
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FINES ================= -->
+
+    <section class="section" id="fines">
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Fines
+                </h2>
+
+                <p>
+                    View unpaid library fines
+                </p>
+
+            </div>
+
+            <button
+                    class="primary-btn"
+                    onclick="loadFines()">
+
+                🔄 Refresh Fines
+
+            </button>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Transaction</th>
+                    <th>Overdue Days</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="finesTable">
+
+                <tr>
+                    <td colspan="5">
+                        Loading fines...
+                    </td>
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= REPORTS ================= -->
+
+    <section class="section" id="reports">
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Library Reports
+                </h2>
+
+                <p>
+                    Monitor important library activities
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="report-grid">
+
+            <div class="report-card">
+
+                <span>📤</span>
+
+                <strong>
+                    Issued Books
+                </strong>
+
+                <small>
+                    Currently issued books
+                </small>
+
+                <button onclick="viewReport('/api/reports/issued')">
+                    View
+                </button>
+
+            </div>
+
+
+            <div class="report-card">
+
+                <span>⏰</span>
+
+                <strong>
+                    Overdue Books
+                </strong>
+
+                <small>
+                    Books past their due date
+                </small>
+
+                <button onclick="viewReport('/api/reports/overdue')">
+                    View
+                </button>
+
+            </div>
+
+
+            <div class="report-card">
+
+                <span>💰</span>
+
+                <strong>
+                    Unpaid Fines
+                </strong>
+
+                <small>
+                    Pending fine records
+                </small>
+
+                <button onclick="viewReport('/api/reports/unpaid-fines')">
+                    View
+                </button>
+
+            </div>
+
+
+            <div class="report-card">
+
+                <span>📋</span>
+
+                <strong>
+                    Reservations
+                </strong>
+
+                <small>
+                    Active reservations
+                </small>
+
+                <button onclick="viewReport('/api/reports/reservations')">
+                    View
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= NOTIFICATIONS ================= -->
+
+    <section class="section" id="notifications">
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Notifications
+                </h2>
+
+                <p>
+                    Library notification area
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="notification-box">
+
+            🔔
+
+            <div>
+
+                <strong>
+                    Library Notifications
+                </strong>
+
+                <p>
+                    Notifications related to overdue books,
+                    reservations and library activities will
+                    appear here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="js/librarian-dashboard.js"></script>
+
+</body>
+</html>

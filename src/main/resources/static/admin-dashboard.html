@@ -1,0 +1,1782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Smart Library</title>
+
+    <link rel="stylesheet"
+          href="css/admin-dashboard.css">
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- ======================================================
+         SIDEBAR
+    ======================================================= -->
+
+    <aside class="sidebar">
+
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                📚
+            </div>
+
+            <div>
+
+                <h2>
+                    Smart Library
+                </h2>
+
+                <span>
+                    Administration
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+
+            <button
+                    class="nav-item active"
+                    data-section="dashboard">
+
+                📊 Dashboard
+
+            </button>
+
+
+            <button
+                    class="nav-item"
+                    data-section="users">
+
+                👥 User Management
+
+            </button>
+
+
+            <button
+                    class="nav-item"
+                    data-section="books">
+
+                📚 Book Management
+
+            </button>
+
+
+            <button
+                    class="nav-item"
+                    data-section="copies">
+
+                📦 Book Copies
+
+            </button>
+
+
+            <button
+                    class="nav-item"
+                    data-section="fines">
+
+                💰 Fine Management
+
+            </button>
+
+
+            <button
+                    class="nav-item"
+                    data-section="reports">
+
+                📈 Reports & Analytics
+
+            </button>
+
+
+            <button
+                    class="nav-item"
+                    data-section="notifications">
+
+                🔔 Notifications
+
+            </button>
+
+
+            <button
+                    class="nav-item"
+                    data-section="audit">
+
+                📝 Audit Logs
+
+            </button>
+
+
+            <button
+                    class="nav-item"
+                    data-section="settings">
+
+                ⚙️ Settings
+
+            </button>
+
+
+        </nav>
+
+
+        <button
+                id="logoutBtn"
+                class="logout-btn">
+
+            🚪 Logout
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- ======================================================
+         MAIN
+    ======================================================= -->
+
+    <main class="main">
+
+
+        <!-- ==================================================
+             TOPBAR
+        =================================================== -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <h1 id="pageTitle">
+                    Admin Dashboard
+                </h1>
+
+                <p>
+                    Smart Online Library Management System
+                </p>
+
+            </div>
+
+
+            <div class="profile">
+
+
+                <div class="profile-avatar">
+                    👨‍💼
+                </div>
+
+
+                <div>
+
+                    <strong id="adminName">
+                        Admin
+                    </strong>
+
+                    <span>
+                        Administrator
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- ==================================================
+             DASHBOARD
+        =================================================== -->
+
+        <section
+                id="dashboard"
+                class="content-section active">
+
+
+            <div class="welcome-card">
+
+
+                <div>
+
+                    <span class="eyebrow">
+                        ADMIN CONTROL CENTER
+                    </span>
+
+
+                    <h2>
+
+                        Welcome,
+                        <span id="welcomeName">
+                            Admin
+                        </span>
+                        👋
+
+                    </h2>
+
+
+                    <p>
+
+                        Manage users, books, library operations
+                        and system data from one place.
+
+                    </p>
+
+                </div>
+
+
+                <div class="welcome-icon">
+                    🛡️
+                </div>
+
+
+            </div>
+
+
+
+            <!-- DASHBOARD STATS -->
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👥
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Users
+                        </span>
+
+                        <strong id="totalUsers">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📚
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Books
+                        </span>
+
+                        <strong id="totalBooks">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📦
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Copies
+                        </span>
+
+                        <strong id="totalCopies">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📖
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Issued Copies
+                        </span>
+
+                        <strong id="issuedCopies">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🔖
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Reservations
+                        </span>
+
+                        <strong id="reservations">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        💰
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Unpaid Fines
+                        </span>
+
+                        <strong id="unpaidFines">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="eyebrow">
+                        MANAGEMENT
+                    </span>
+
+                    <h2>
+                        Quick Actions
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="quick-grid">
+
+
+                <button
+                        class="quick-card"
+                        data-section="users">
+
+                    <span>
+                        👥
+                    </span>
+
+                    <strong>
+                        Manage Users
+                    </strong>
+
+                    <small>
+                        Add, edit and remove users
+                    </small>
+
+                </button>
+
+
+
+                <button
+                        class="quick-card"
+                        data-section="books">
+
+                    <span>
+                        📚
+                    </span>
+
+                    <strong>
+                        Manage Books
+                    </strong>
+
+                    <small>
+                        Add, edit and remove books
+                    </small>
+
+                </button>
+
+
+
+                <button
+                        class="quick-card"
+                        data-section="copies">
+
+                    <span>
+                        📦
+                    </span>
+
+                    <strong>
+                        Book Copies
+                    </strong>
+
+                    <small>
+                        Manage physical copies
+                    </small>
+
+                </button>
+
+
+
+                <button
+                        class="quick-card"
+                        data-section="fines">
+
+                    <span>
+                        💰
+                    </span>
+
+                    <strong>
+                        Fine Management
+                    </strong>
+
+                    <small>
+                        View and manage fines
+                    </small>
+
+                </button>
+
+
+
+                <button
+                        class="quick-card"
+                        data-section="reports">
+
+                    <span>
+                        📈
+                    </span>
+
+                    <strong>
+                        Reports
+                    </strong>
+
+                    <small>
+                        View library analytics
+                    </small>
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             USER MANAGEMENT
+        =================================================== -->
+
+        <section
+                id="users"
+                class="content-section">
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <span class="eyebrow">
+                        ADMINISTRATION
+                    </span>
+
+                    <h2>
+                        User Management
+                    </h2>
+
+                    <p>
+                        Create and manage Admin, Librarian
+                        and Student accounts.
+                    </p>
+
+                </div>
+
+
+                <button
+                        id="addUserBtn"
+                        class="primary-btn">
+
+                    + Add User
+
+                </button>
+
+
+            </div>
+
+
+
+            <div class="toolbar">
+
+
+                <input
+                        type="text"
+                        id="userSearch"
+                        placeholder="🔎 Search by name or email...">
+
+
+                <button
+                        id="refreshUsersBtn"
+                        class="secondary-btn">
+
+                    ↻ Refresh
+
+                </button>
+
+
+            </div>
+
+
+
+            <div class="table-card">
+
+
+                <div class="table-wrapper">
+
+
+                    <table>
+
+
+                        <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+                            <th>
+                                Name
+                            </th>
+
+                            <th>
+                                Email
+                            </th>
+
+                            <th>
+                                Role
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                        </thead>
+
+
+                        <tbody id="usersTableBody">
+
+
+                        <tr>
+
+                            <td
+                                    colspan="5"
+                                    class="empty">
+
+                                Loading users...
+
+                            </td>
+
+                        </tr>
+
+
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             BOOK MANAGEMENT
+        =================================================== -->
+
+        <section
+                id="books"
+                class="content-section">
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <span class="eyebrow">
+                        LIBRARY CATALOG
+                    </span>
+
+                    <h2>
+                        Book Management
+                    </h2>
+
+                    <p>
+                        Add, update, search and remove
+                        library books.
+                    </p>
+
+                </div>
+
+
+                <button
+                        id="addBookBtn"
+                        class="primary-btn">
+
+                    + Add Book
+
+                </button>
+
+
+            </div>
+
+
+
+            <div class="toolbar">
+
+
+                <input
+                        type="text"
+                        id="bookSearch"
+                        placeholder="🔎 Search by title, author, ISBN...">
+
+
+                <button
+                        id="refreshBooksBtn"
+                        class="secondary-btn">
+
+                    ↻ Refresh
+
+                </button>
+
+
+            </div>
+
+
+
+            <div class="table-card">
+
+
+                <div class="table-wrapper">
+
+
+                    <table>
+
+
+                        <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+                            <th>
+                                Title
+                            </th>
+
+                            <th>
+                                ISBN
+                            </th>
+
+                            <th>
+                                Author
+                            </th>
+
+                            <th>
+                                Category
+                            </th>
+
+                            <th>
+                                Year
+                            </th>
+
+                            <th>
+                                Total
+                            </th>
+
+                            <th>
+                                Available
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                        </thead>
+
+
+                        <tbody id="booksTableBody">
+
+
+                        <tr>
+
+                            <td
+                                    colspan="9"
+                                    class="empty">
+
+                                Loading books...
+
+                            </td>
+
+                        </tr>
+
+
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             BOOK COPIES
+        =================================================== -->
+
+        <section
+                id="copies"
+                class="content-section">
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <span class="eyebrow">
+                        INVENTORY MANAGEMENT
+                    </span>
+
+                    <h2>
+                        Book Copies
+                    </h2>
+
+                    <p>
+                        Manage physical copies and their
+                        current availability status.
+                    </p>
+
+                </div>
+
+
+                <button
+                        id="addCopyBtn"
+                        class="primary-btn">
+
+                    + Add Copy
+
+                </button>
+
+
+            </div>
+
+
+
+            <div class="toolbar">
+
+
+                <input
+                        type="text"
+                        id="copySearch"
+                        placeholder="🔎 Search copy code, book or status...">
+
+
+                <button
+                        id="refreshCopiesBtn"
+                        class="secondary-btn">
+
+                    ↻ Refresh
+
+                </button>
+
+
+            </div>
+
+
+
+            <div class="table-card">
+
+
+                <div class="table-wrapper">
+
+
+                    <table>
+
+
+                        <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+                            <th>
+                                Copy Code
+                            </th>
+
+                            <th>
+                                Book
+                            </th>
+
+                            <th>
+                                ISBN
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                        </thead>
+
+
+                        <tbody id="copiesTableBody">
+
+
+                        <tr>
+
+                            <td
+                                    colspan="6"
+                                    class="empty">
+
+                                Loading copies...
+
+                            </td>
+
+                        </tr>
+
+
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             FINE MANAGEMENT
+        =================================================== -->
+
+        <section
+                id="fines"
+                class="content-section">
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <span class="eyebrow">
+                        FINANCIAL MANAGEMENT
+                    </span>
+
+                    <h2>
+                        Fine Management
+                    </h2>
+
+                    <p>
+                        Monitor overdue fines and update
+                        payment status.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="toolbar">
+
+
+                <input
+                        type="text"
+                        id="fineSearch"
+                        placeholder="🔎 Search by user, email, book or status...">
+
+
+                <button
+                        id="refreshFinesBtn"
+                        class="secondary-btn">
+
+                    ↻ Refresh
+
+                </button>
+
+
+            </div>
+
+
+
+            <div class="table-card">
+
+
+                <div class="table-wrapper">
+
+
+                    <table>
+
+
+                        <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+                            <th>
+                                User
+                            </th>
+
+                            <th>
+                                Book
+                            </th>
+
+                            <th>
+                                Overdue Days
+                            </th>
+
+                            <th>
+                                Amount
+                            </th>
+
+                            <th>
+                                Fine Date
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                        </thead>
+
+
+                        <tbody id="finesTableBody">
+
+
+                        <tr>
+
+                            <td
+                                    colspan="8"
+                                    class="empty">
+
+                                Loading fines...
+
+                            </td>
+
+                        </tr>
+
+
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             REPORTS
+        =================================================== -->
+
+        <section
+                id="reports"
+                class="content-section placeholder-section">
+
+
+            <div class="placeholder-card">
+
+
+                <span>
+                    📈
+                </span>
+
+
+                <h2>
+                    Reports & Analytics
+                </h2>
+
+
+                <p>
+                    Advanced reports and analytics will be
+                    connected next.
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             NOTIFICATIONS
+        =================================================== -->
+
+        <section
+                id="notifications"
+                class="content-section placeholder-section">
+
+
+            <div class="placeholder-card">
+
+
+                <span>
+                    🔔
+                </span>
+
+
+                <h2>
+                    Notifications
+                </h2>
+
+
+                <p>
+                    Notification management will be
+                    connected next.
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             AUDIT LOGS
+        =================================================== -->
+
+        <section
+                id="audit"
+                class="content-section placeholder-section">
+
+
+            <div class="placeholder-card">
+
+
+                <span>
+                    📝
+                </span>
+
+
+                <h2>
+                    Audit Logs
+                </h2>
+
+
+                <p>
+                    Audit logging will be connected next.
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             SETTINGS
+        =================================================== -->
+
+        <section
+                id="settings"
+                class="content-section placeholder-section">
+
+
+            <div class="placeholder-card">
+
+
+                <span>
+                    ⚙️
+                </span>
+
+
+                <h2>
+                    System Settings
+                </h2>
+
+
+                <p>
+                    System settings will be connected next.
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- ==========================================================
+     USER MODAL
+=========================================================== -->
+
+<div
+        id="userModal"
+        class="modal">
+
+
+    <div class="modal-card">
+
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <span class="eyebrow">
+                    USER MANAGEMENT
+                </span>
+
+                <h2 id="userModalTitle">
+                    Add User
+                </h2>
+
+            </div>
+
+
+            <button
+                    class="close-btn"
+                    id="closeUserModal">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+
+        <form id="userForm">
+
+
+            <input
+                    type="hidden"
+                    id="userId">
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Name
+                    </label>
+
+                    <input
+                            type="text"
+                            id="userNameInput"
+                            required
+                            placeholder="Enter full name">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input
+                            type="email"
+                            id="userEmailInput"
+                            required
+                            placeholder="Enter email">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Password
+                    </label>
+
+                    <input
+                            type="password"
+                            id="userPasswordInput"
+                            required
+                            placeholder="Enter password">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Role
+                    </label>
+
+
+                    <select
+                            id="userRoleInput"
+                            required>
+
+
+                        <option value="STUDENT">
+                            Student
+                        </option>
+
+
+                        <option value="LIBRARIAN">
+                            Librarian
+                        </option>
+
+
+                        <option value="ADMIN">
+                            Admin
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div
+                    id="userFormMessage"
+                    class="form-message">
+            </div>
+
+
+
+            <div class="modal-actions">
+
+
+                <button
+                        type="button"
+                        class="secondary-btn"
+                        id="cancelUserBtn">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                        type="submit"
+                        class="primary-btn">
+
+                    Save User
+
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- ==========================================================
+     BOOK MODAL
+=========================================================== -->
+
+<div
+        id="bookModal"
+        class="modal">
+
+
+    <div class="modal-card large">
+
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <span class="eyebrow">
+                    BOOK MANAGEMENT
+                </span>
+
+                <h2 id="bookModalTitle">
+                    Add Book
+                </h2>
+
+            </div>
+
+
+            <button
+                    class="close-btn"
+                    id="closeBookModal">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+
+        <form id="bookForm">
+
+
+            <input
+                    type="hidden"
+                    id="bookId">
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Book Title
+                    </label>
+
+                    <input
+                            type="text"
+                            id="bookTitleInput"
+                            required
+                            placeholder="Enter book title">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        ISBN
+                    </label>
+
+                    <input
+                            type="text"
+                            id="bookIsbnInput"
+                            required
+                            placeholder="Enter ISBN">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Author
+                    </label>
+
+                    <input
+                            type="text"
+                            id="bookAuthorInput"
+                            required
+                            placeholder="Enter author">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Category
+                    </label>
+
+                    <input
+                            type="text"
+                            id="bookCategoryInput"
+                            required
+                            placeholder="e.g. Programming">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Publisher
+                    </label>
+
+                    <input
+                            type="text"
+                            id="bookPublisherInput"
+                            placeholder="Enter publisher">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Publication Year
+                    </label>
+
+                    <input
+                            type="number"
+                            id="bookYearInput"
+                            min="1000"
+                            max="2100"
+                            placeholder="2026">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Total Copies
+                    </label>
+
+                    <input
+                            type="number"
+                            id="bookTotalInput"
+                            min="0"
+                            required
+                            placeholder="0">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Available Copies
+                    </label>
+
+                    <input
+                            type="number"
+                            id="bookAvailableInput"
+                            min="0"
+                            required
+                            placeholder="0">
+
+                </div>
+
+
+            </div>
+
+
+
+            <div
+                    id="bookFormMessage"
+                    class="form-message">
+            </div>
+
+
+
+            <div class="modal-actions">
+
+
+                <button
+                        type="button"
+                        class="secondary-btn"
+                        id="cancelBookBtn">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                        type="submit"
+                        class="primary-btn">
+
+                    Save Book
+
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- ==========================================================
+     BOOK COPY MODAL
+=========================================================== -->
+
+<div
+        id="copyModal"
+        class="modal">
+
+
+    <div class="modal-card">
+
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <span class="eyebrow">
+                    INVENTORY MANAGEMENT
+                </span>
+
+                <h2>
+                    Add Book Copy
+                </h2>
+
+            </div>
+
+
+            <button
+                    class="close-btn"
+                    id="closeCopyModal">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+
+        <form id="copyForm">
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+
+                    <label>
+                        Select Book
+                    </label>
+
+
+                    <select
+                            id="copyBookInput"
+                            required>
+
+                        <option value="">
+                            Select Book
+                        </option>
+
+                    </select>
+
+
+                </div>
+
+
+
+                <div class="form-group">
+
+
+                    <label>
+                        Copy Code
+                    </label>
+
+
+                    <input
+                            type="text"
+                            id="copyCodeInput"
+                            required
+                            placeholder="e.g. CC-001">
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div
+                    id="copyFormMessage"
+                    class="form-message">
+            </div>
+
+
+
+            <div class="modal-actions">
+
+
+                <button
+                        type="button"
+                        class="secondary-btn"
+                        id="cancelCopyBtn">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                        type="submit"
+                        class="primary-btn">
+
+                    Add Copy
+
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- ==========================================================
+     JAVASCRIPT
+=========================================================== -->
+
+<script src="js/admin-dashboard.js"></script>
+
+
+</body>
+
+</html>

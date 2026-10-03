@@ -1,0 +1,258 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Library Dashboard</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+
+    <div class="logo">
+        📚 <span>Smart Library</span>
+    </div>
+
+    <nav>
+
+        <a href="#" class="nav-item active">
+            📊 <span>Dashboard</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            📚 <span>Books</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            👥 <span>Users</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            🔄 <span>Transactions</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            📋 <span>Reservations</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            💰 <span>Fines</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            🔔 <span>Notifications</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            ❤️ <span>Wishlist</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            📈 <span>Reports</span>
+        </a>
+
+    </nav>
+
+    <button id="logoutBtn" class="logout-btn">
+        🚪 Logout
+    </button>
+
+</aside>
+
+
+<!-- Main Content -->
+<main class="main-content">
+
+    <!-- Topbar -->
+    <header class="topbar">
+
+        <div>
+            <h1>Dashboard</h1>
+            <p>Smart Online Library Management System</p>
+        </div>
+
+        <div class="profile">
+
+            <div class="profile-icon">
+                👤
+            </div>
+
+            <div>
+                <strong id="userName">User</strong>
+                <small id="userRole">STUDENT</small>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- Welcome -->
+    <section class="welcome-card">
+
+        <div>
+            <h2>Welcome back, <span id="welcomeName">User</span> 👋</h2>
+
+            <p>
+                Manage your library activities from one place.
+            </p>
+        </div>
+
+        <div class="book-icon">
+            📚
+        </div>
+
+    </section>
+
+
+    <!-- Statistics -->
+    <section class="stats-grid">
+
+        <div class="stat-card">
+            <div class="stat-icon">👥</div>
+
+            <div>
+                <p>Total Users</p>
+                <h2 id="totalUsers">0</h2>
+            </div>
+        </div>
+
+
+        <div class="stat-card">
+            <div class="stat-icon">📚</div>
+
+            <div>
+                <p>Total Books</p>
+                <h2 id="totalBooks">0</h2>
+            </div>
+        </div>
+
+
+        <div class="stat-card">
+            <div class="stat-icon">📖</div>
+
+            <div>
+                <p>Available Copies</p>
+                <h2 id="availableCopies">0</h2>
+            </div>
+        </div>
+
+
+        <div class="stat-card">
+            <div class="stat-icon">🔄</div>
+
+            <div>
+                <p>Issued Copies</p>
+                <h2 id="issuedCopies">0</h2>
+            </div>
+        </div>
+
+
+        <div class="stat-card">
+            <div class="stat-icon">📋</div>
+
+            <div>
+                <p>Reservations</p>
+                <h2 id="totalReservations">0</h2>
+            </div>
+        </div>
+
+
+        <div class="stat-card">
+            <div class="stat-icon">💰</div>
+
+            <div>
+                <p>Total Fines</p>
+                <h2 id="totalFines">0</h2>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Quick Actions -->
+    <section class="section">
+
+        <div class="section-header">
+            <h2>Quick Actions</h2>
+        </div>
+
+        <div class="quick-actions">
+
+            <button class="action-card">
+                <span>📚</span>
+                <strong>Browse Books</strong>
+                <small>Explore library books</small>
+            </button>
+
+            <button class="action-card">
+                <span>🔄</span>
+                <strong>Issue Book</strong>
+                <small>Issue an available book</small>
+            </button>
+
+            <button class="action-card">
+                <span>📋</span>
+                <strong>Reservations</strong>
+                <small>Manage reservations</small>
+            </button>
+
+            <button class="action-card">
+                <span>📈</span>
+                <strong>View Reports</strong>
+                <small>Check library reports</small>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Recent Activity -->
+    <section class="section">
+
+        <div class="section-header">
+
+            <div>
+                <h2>Recent Activity</h2>
+                <p>Latest library transactions</p>
+            </div>
+
+            <button class="view-btn">
+                View All
+            </button>
+
+        </div>
+
+        <div class="activity-card">
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    📭
+                </div>
+
+                <h3>No recent activity</h3>
+
+                <p>
+                    Your latest library activities will appear here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>
